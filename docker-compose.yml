@@ -1,0 +1,145 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: duxxan-postgres
+    environment:
+      POSTGRES_DB: duxxan
+      POSTGRES_USER: duxxan_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - duxxan-network
+
+  # Redis for Caching and Sessions
+  redis:
+    image: redis:7-alpine
+    container_name: duxxan-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - duxxan-network
+
+  # API Gateway / Load Balancer
+  nginx:
+    image: nginx:alpine
+    container_name: duxxan-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - api-server
+      - frontend
+    networks:
+      - duxxan-network
+
+  # Main API Server
+  api-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: duxxan-api
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://duxxan_user:${POSTGRES_PASSWORD}@postgres:5432/duxxan
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: ${JWT_SECRET}
+      API_PORT: 3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./uploads:/app/uploads
+    networks:
+      - duxxan-network
+    restart: unless-stopped
+
+  # Auth Service
+  auth-service:
+    build:
+      context: ./services/auth
+      dockerfile: Dockerfile
+    container_name: duxxan-auth
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://duxxan_user:${POSTGRES_PASSWORD}@postgres:5432/duxxan
+      JWT_SECRET: ${JWT_SECRET}
+      AUTH_PORT: 3001
+    ports:
+      - "3001:3001"
+    depends_on:
+      - postgres
+    networks:
+      - duxxan-network
+    restart: unless-stopped
+
+  # User Service
+  user-service:
+    build:
+      context: ./services/user
+      dockerfile: Dockerfile
+    container_name: duxxan-user
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://duxxan_user:${POSTGRES_PASSWORD}@postgres:5432/duxxan
+      USER_PORT: 3002
+    ports:
+      - "3002:3002"
+    depends_on:
+      - postgres
+    networks:
+      - duxxan-network
+    restart: unless-stopped
+
+  # Frontend Application
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: duxxan-frontend
+    environment:
+      NODE_ENV: production
+      VITE_API_URL: http://api-server:3000
+    ports:
+      - "4000:4000"
+    networks:
+      - duxxan-network
+    restart: unless-stopped
+
+  # Job Queue Worker
+  queue-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: duxxan-worker
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://duxxan_user:${POSTGRES_PASSWORD}@postgres:5432/duxxan
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - duxxan-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  duxxan-network:
+    driver: bridge

@@ -1,0 +1,51 @@
+Uncaught TypeError: raffles?.data?.map is not a function
+    at RaffleManagement (RaffleManagement.tsx:149:33)
+    at renderWithHooks (chunk-RPCDYKBN.js?v=e9e5eb75:11548:26)
+    at updateFunctionComponent (chunk-RPCDYKBN.js?v=e9e5eb75:14582:28)
+    at beginWork (chunk-RPCDYKBN.js?v=e9e5eb75:15924:22)
+    at HTMLUnknownElement.callCallback2 (chunk-RPCDYKBN.js?v=e9e5eb75:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-RPCDYKBN.js?v=e9e5eb75:3699:24)
+    at invokeGuardedCallback (chunk-RPCDYKBN.js?v=e9e5eb75:3733:39)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=e9e5eb75:19765:15)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=e9e5eb75:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=e9e5eb75:19137:13)Understand this error
+chunk-RPCDYKBN.js?v=e9e5eb75:14032 The above error occurred in the <RaffleManagement> component:
+
+    at RaffleManagement (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/components/admin/RaffleManagement.tsx:31:21)
+    at div
+    at https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-IWFJIMEQ.js?v=e9e5eb75:42:13
+    at Presence (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WKSNYNSY.js?v=e9e5eb75:24:11)
+    at https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=e9e5eb75:177:13
+    at _c5 (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/components/ui/tabs.tsx:72:12)
+    at div
+    at https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-IWFJIMEQ.js?v=e9e5eb75:42:13
+    at Provider (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=e9e5eb75:38:15)
+    at https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=e9e5eb75:55:7
+    at div
+    at div
+    at AdminPanel (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/pages/AdminPanel.tsx:42:21)
+    at Route (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=e9e5eb75:323:16)
+    at Switch (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=e9e5eb75:379:17)
+    at div
+    at Router
+    at div
+    at AppContent (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/App.tsx?v=34cfBCtcTPndoL6SXvJOA:210:39)
+    at TranslationProvider (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/hooks/useTranslation.tsx:119:39)
+    at QueryClientProvider (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=e9e5eb75:2805:3)
+    at ThemeProvider (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/components/ThemeProvider.tsx:20:33)
+    at App (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/App.tsx?v=34cfBCtcTPndoL6SXvJOA:245:3)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+logCapturedError @ chunk-RPCDYKBN.js?v=e9e5eb75:14032Understand this error
+chunk-RPCDYKBN.js?v=e9e5eb75:9129 Uncaught TypeError: raffles?.data?.map is not a function
+    at RaffleManagement (RaffleManagement.tsx:149:33)
+    at renderWithHooks (chunk-RPCDYKBN.js?v=e9e5eb75:11548:26)
+    at updateFunctionComponent (chunk-RPCDYKBN.js?v=e9e5eb75:14582:28)
+    at beginWork (chunk-RPCDYKBN.js?v=e9e5eb75:15924:22)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=e9e5eb75:19753:22)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=e9e5eb75:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=e9e5eb75:19137:13)
+    at renderRootSync (chunk-RPCDYKBN.js?v=e9e5eb75:19116:15)
+    at recoverFromConcurrentError (chunk-RPCDYKBN.js?v=e9e5eb75:18736:28)
+    at performSyncWorkOnRoot (chunk-RPCDYKBN.js?v=e9e5eb75:18879:28)

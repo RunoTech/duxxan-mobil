@@ -1,0 +1,79 @@
+"Chart render hatası" genellikle grafik bileşenleri (örneğin Recharts, Chart.js, ECharts, ApexCharts) kullanılırken aşağıdaki nedenlerden birinden kaynaklanır. Aşağıda nedenleri ve çözüm yolları net şekilde listeliyorum:
+
+✅ 1. Container Boyutu Sorunu (0x0)
+Grafiği render eden div henüz boyut almadıysa grafik oluşmaz veya hata verir.
+
+🔧 Çözüm:
+Chart bileşenini useEffect ile component tam yüklendikten sonra render et.
+
+width ve height CSS’te net tanımlı olmalı.
+
+css
+Kopyala
+Düzenle
+.chart-wrapper {
+  width: 100%;
+  height: 300px;
+}
+jsx
+Kopyala
+Düzenle
+{typeof window !== 'undefined' && (
+  <ResponsiveContainer width="100%" height={300}>
+    <LineChart data={data}>
+      {/* ... */}
+    </LineChart>
+  </ResponsiveContainer>
+)}
+✅ 2. data boş ya da undefined
+Grafiğin veri kaynağı (data) boşsa veya undefined ise hata alırsın.
+
+🔧 Çözüm:
+data tanımlı ve length > 0 olduğunda çizdir:
+
+jsx
+Kopyala
+Düzenle
+{data && data.length > 0 ? (
+  <ResponsiveContainer width="100%" height={300}>
+    <LineChart data={data}>
+      {/* chart içerikleri */}
+    </LineChart>
+  </ResponsiveContainer>
+) : (
+  <p>Yükleniyor...</p>
+)}
+✅ 3. SSR (Server Side Rendering) Uyuşmazlığı
+Next.js, Remix veya benzeri SSR destekli frameworklerde grafik kütüphaneleri sadece tarayıcıda çalışır.
+
+🔧 Çözüm:
+Grafik bileşenini sadece tarayıcıda render et:
+
+jsx
+Kopyala
+Düzenle
+import dynamic from 'next/dynamic'
+
+const NoSSRChart = dynamic(() => import('./MyChartComponent'), { ssr: false });
+
+export default function Page() {
+  return <NoSSRChart />
+}
+✅ 4. Chart.js özelinde “ResizeObserver loop” hatası
+Chart.js ve bazı diğer grafik kütüphaneleri ResizeObserver kaynaklı bu hatayı verir.
+
+🔧 Çözüm:
+resizeDelay parametresiyle veya setTimeout ile DOM hazır olduktan sonra çiz.
+
+✅ 5. Tailwind, Flex veya Grid içinde 0 boyut vermesi
+Parent div’in height: 0 olması grafik renderını engeller.
+
+🔧 Çözüm:
+Ana kapsayıcıya mutlaka yükseklik ver:
+
+html
+Kopyala
+Düzenle
+<div className="w-full h-[300px]"> 
+  {/* Chart burada */}
+</div>

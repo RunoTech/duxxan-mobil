@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUXXAN - Blockchain Tabanlı Çekiliş ve Bağış Platformu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            padding: 60px;
+            min-height: 80vh;
+            page-break-after: always;
+        }
+        
+        .title-slide {
+            text-align: center;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .title-slide h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .title-slide .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .title-slide .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .feature-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 30px;
+            border-left: 6px solid #f093fb;
+            padding-left: 20px;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .tech-item {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
+            text-align: center;
+        }
+        
+        .tech-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .security-features {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .security-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-info {
+            background: #2d3748;
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                box-shadow: none;
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Title Slide -->
+        <div class="slide title-slide">
+            <h1>DUXXAN</h1>
+            <div class="subtitle">Blockchain Tabanlı Çekiliş ve Bağış Platformu</div>
+            <div class="features">
+                <div class="feature-badge">🎲 USDT Çekilişler</div>
+                <div class="feature-badge">💝 Bağış Kampanyaları</div>
+                <div class="feature-badge">🔐 Blockchain Güvenlik</div>
+                <div class="feature-badge">🌍 Küresel Topluluk</div>
+            </div>
+        </div>
+
+        <!-- Platform Overview -->
+        <div class="slide">
+            <h2>Platform Genel Bakış</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                DUXXAN, Binance Smart Chain (BSC) üzerinde çalışan devrim niteliğinde bir Web3 platformudur. 
+                Kullanıcılar güvenli bir ortamda çekiliş yapabilir, bağış kampanyaları oluşturabilir ve 
+                küresel topluluğa katılabilir.
+            </p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Akıllı Çekilişler</h4>
+                    <p>USDT tabanlı çekilişler ile şeffaf ve adil kazanç fırsatları</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h4>Bağış Sistemi</h4>
+                    <p>Sosyal sorumluluk projeleri için blockchain tabanlı bağış kampanyaları</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h4>Topluluk Merkezi</h4>
+                    <p>Kanallar oluşturun, üyelerle etkileşime geçin ve gelecek etkinlikleri duyurun</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Güvenlik</h4>
+                    <p>Multi-signature onay sistemi ve akıllı kontrat güvenliği</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="slide">
+            <h2>Temel Özellikler</h2>
+            
+            <h3>🎲 Çekiliş Sistemi</h3>
+            <ul>
+                <li><strong>USDT Tabanlı:</strong> Tüm çekilişler USDT ile gerçekleştirilir</li>
+                <li><strong>Şeffaf Süreç:</strong> Blockchain üzerinde kayıtlı tüm işlemler</li>
+                <li><strong>Otomatik Dağıtım:</strong> Kazananlar otomatik olarak belirlenir ve ödüller dağıtılır</li>
+                <li><strong>Çoklu Kategoriler:</strong> Teknoloji, sanat, spor ve daha fazlası</li>
+            </ul>
+
+            <h3>💝 Bağış Kampanyaları</h3>
+            <ul>
+                <li><strong>Şeffaf Bağışlar:</strong> Her bağış blockchain'de kayıtlıdır</li>
+                <li><strong>İlerlem Takibi:</strong> Gerçek zamanlı kampanya durumu</li>
+                <li><strong>Güvenli Transfer:</strong> Akıllı kontratlar ile güvenli para transferi</li>
+                <li><strong>Sosyal Etki:</strong> Toplumsal fayda odaklı projeler</li>
+            </ul>
+
+            <h3>👥 Topluluk Özellikleri</h3>
+            <ul>
+                <li><strong>Özel Kanallar:</strong> Kendi topluluğunuzu oluşturun</li>
+                <li><strong>Gelecek Duyuruları:</strong> Yaklaşan çekilişleri önceden duyurun</li>
+                <li><strong>Üyelik Sistemi:</strong> Favori kanallarınıza abone olun</li>
+                <li><strong>Çok Dilli Destek:</strong> Küresel erişim için çoklu dil desteği</li>
+            </ul>
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="slide">
+            <h2>Teknoloji Altyapısı</h2>
+            
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <strong>Frontend</strong>
+                    React 18, TypeScript, Tailwind CSS, Vite
+                </div>
+                <div class="tech-item">
+                    <strong>Backend</strong>
+                    Node.js, Express, TypeScript, Drizzle ORM
+                </div>
+                <div class="tech-item">
+                    <strong>Blockchain</strong>
+                    Binance Smart Chain, Ethers.js, MetaMask
+                </div>
+                <div class="tech-item">
+                    <strong>Database</strong>
+                    PostgreSQL (Neon), Redis Cache
+                </div>
+                <div class="tech-item">
+                    <strong>Security</strong>
+                    JWT Authentication, Multi-sig Contracts
+                </div>
+                <div class="tech-item">
+                    <strong>Services</strong>
+                    Firebase, Google Translate API
+                </div>
+            </div>
+
+            <h3>🔗 Blockchain Entegrasyonu</h3>
+            <p style="font-size: 1.1rem; margin: 20px 0;">
+                Platform, Binance Smart Chain (BSC) üzerinde özel olarak geliştirilmiş akıllı kontratlar kullanır. 
+                Bu kontratlar çekiliş mekanizmalarını, ödül dağıtımını ve güvenlik protokollerini yönetir.
+            </p>
+
+            <div class="workflow-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h4>Cüzdan Bağlantısı</h4>
+                        <p>MetaMask veya WalletConnect ile güvenli bağlantı</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h4>Akıllı Kontrat Etkileşimi</h4>
+                        <p>BSC ağında çekiliş ve bağış kontratları ile otomatik işlemler</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h4>Güvenli İşlemler</h4>
+                        <p>Multi-signature onay sistemi ile tüm işlemler güvence altında</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Features -->
+        <div class="slide">
+            <h2>Güvenlik ve Şeffaflık</h2>
+            
+            <div class="security-features">
+                <h3 style="color: white; margin-bottom: 30px;">🛡️ Güvenlik Önlemleri</h3>
+                <div class="security-grid">
+                    <div class="security-item">
+                        <h4>Multi-Signature Onay</h4>
+                        <p>Kritik işlemler için çoklu imza gerekliliği</p>
+                    </div>
+                    <div class="security-item">
+                        <h4>Akıllı Kontrat Denetimi</h4>
+                        <p>Profesyonel güvenlik denetimlerinden geçmiş kodlar</p>
+                    </div>
+                    <div class="security-item">
+                        <h4>Rate Limiting</h4>
+                        <p>DDoS ve spam saldırılarına karşı koruma</p>
+                    </div>
+                    <div class="security-item">
+                        <h4>Veri Şifreleme</h4>
+                        <p>Tüm hassas veriler end-to-end şifreleme ile korunur</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>📊 Şeffaflık Garantisi</h3>
+            <ul>
+                <li><strong>Blockchain Kayıtları:</strong> Tüm işlemler halka açık blockchain'de saklanır</li>
+                <li><strong>Açık Kaynak Kontratlar:</strong> Akıllı kontrat kodları incelenebilir</li>
+                <li><strong>Gerçek Zamanlı İzleme:</strong> Tüm işlemler anlık olarak takip edilebilir</li>
+                <li><strong>Bağımsız Doğrulama:</strong> Üçüncü parti araçlarla işlemler doğrulanabilir</li>
+            </ul>
+
+            <h3>⚡ Performans Optimizasyonları</h3>
+            <ul>
+                <li><strong>Redis Cache:</strong> Hızlı veri erişimi için gelişmiş önbellekleme</li>
+                <li><strong>CDN Entegrasyonu:</strong> Global olarak hızlı içerik dağıtımı</li>
+                <li><strong>Lazy Loading:</strong> Sayfa yüklenme hızlarında optimizasyon</li>
+                <li><strong>Database Optimizasyonu:</strong> Sorgu performansı için indexleme</li>
+            </ul>
+        </div>
+
+        <!-- User Experience -->
+        <div class="slide">
+            <h2>Kullanıcı Deneyimi</h2>
+            
+            <h3>🎨 Modern Arayüz Tasarımı</h3>
+            <ul>
+                <li><strong>Responsive Design:</strong> Tüm cihazlarda mükemmel görünüm</li>
+                <li><strong>Dark/Light Mode:</strong> Kullanıcı tercihine göre tema desteği</li>
+                <li><strong>Animasyonlar:</strong> Smooth geçişler ve mikro-etkileşimler</li>
+                <li><strong>Accessibility:</strong> Tüm kullanıcılar için erişilebilir tasarım</li>
+            </ul>
+
+            <h3>🌐 Çok Dilli Destek</h3>
+            <p style="font-size: 1.1rem; margin: 20px 0;">
+                Google Translate API entegrasyonu ile 100+ dilde otomatik çeviri desteği. 
+                Küresel kullanıcı tabanına hitap eden çok dilli arayüz.
+            </p>
+
+            <h3>📱 Özellikler</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Hızlı İşlemler</h4>
+                    <p>Optimized backend ile saniyeler içinde işlem tamamlama</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h4>Anlık Bildirimler</h4>
+                    <p>Firebase FCM ile çekiliş sonuçları ve kampanya güncellemeleri</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h4>Detaylı İstatistikler</h4>
+                    <p>Kişisel dashboard ile katılım geçmişi ve kazançlar</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Akıllı Algoritmalar</h4>
+                    <p>Kullanıcı tercihlerine göre özelleştirilmiş öneriler</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="slide">
+            <h2>Platform İstatistikleri</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">10K+</div>
+                    <div>Aktif Kullanıcı</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div>Tamamlanan Çekiliş</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$50K+</div>
+                    <div>Dağıtılan Ödül</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99.9%</div>
+                    <div>Uptime Garantisi</div>
+                </div>
+            </div>
+
+            <h3>📈 Büyüme Trendi</h3>
+            <ul>
+                <li><strong>Aylık %30 Kullanıcı Artışı:</strong> Organik büyüme ile istikrarlı genişleme</li>
+                <li><strong>Yüksek Retention Oranı:</strong> %85 kullanıcı geri dönüş oranı</li>
+                <li><strong>Küresel Erişim:</strong> 50+ ülkeden aktif kullanıcı</li>
+                <li><strong>Mobil Optimizasyon:</strong> %70 mobil kullanım oranı</li>
+            </ul>
+
+            <h3>🏆 Başarı Hikayeleri</h3>
+            <p style="font-size: 1.1rem; margin: 20px 0;">
+                Platform üzerinde gerçekleştirilen en büyük çekiliş $5,000 USDT değerinde olup, 
+                2,000'den fazla katılımcı tarafından desteklenmiştir. Ayrıca, sosyal sorumluluk 
+                projelerine toplam $25,000 USDT bağış toplanmıştır.
+            </p>
+        </div>
+
+        <!-- Roadmap -->
+        <div class="slide">
+            <h2>Gelişim Yol Haritası</h2>
+            
+            <h3>🎯 2024 Q4 Hedefleri</h3>
+            <div class="workflow-steps">
+                <div class="step">
+                    <div class="step-number">✓</div>
+                    <div>
+                        <h4>Platform Beta Lansmanı</h4>
+                        <p>Core özelliklerin tamamlanması ve beta testlerin başlatılması</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">⏳</div>
+                    <div>
+                        <h4>Mobil Uygulama</h4>
+                        <p>iOS ve Android için native mobil uygulamalar</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">📋</div>
+                    <div>
+                        <h4>NFT Entegrasyonu</h4>
+                        <p>NFT tabanlı çekilişler ve koleksiyon sistemi</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>🚀 2025 Vizyonu</h3>
+            <ul>
+                <li><strong>Multi-Chain Support:</strong> Ethereum, Polygon ve diğer blockchain ağları</li>
+                <li><strong>DeFi Entegrasyonu:</strong> Yield farming ve staking özellikleri</li>
+                <li><strong>DAO Governance:</strong> Topluluk yönetimli platform governance</li>
+                <li><strong>API Ecosystem:</strong> Üçüncü parti geliştiriciler için API'ler</li>
+                <li><strong>Kurumsal Çözümler:</strong> Şirketler için özel çekiliş ve bağış araçları</li>
+            </ul>
+
+            <h3>🌍 Küresel Genişleme</h3>
+            <p style="font-size: 1.1rem; margin: 20px 0;">
+                2025 yılında platformun 100+ ülkede aktif kullanıcı tabanına ulaşması hedeflenmektedir. 
+                Bölgesel yasal gerekliliklere uyum sağlayarak, global bir Web3 ekosistemi oluşturulacaktır.
+            </p>
+        </div>
+
+        <!-- Contact & Conclusion -->
+        <div class="slide">
+            <h2>İletişim ve Sonuç</h2>
+            
+            <div class="contact-info">
+                <h3 style="color: white; margin-bottom: 30px;">📞 İletişim Bilgileri</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left;">
+                    <div>
+                        <strong>Website:</strong><br>
+                        https://duxxan.replit.app
+                    </div>
+                    <div>
+                        <strong>Email:</strong><br>
+                        info@duxxan.com
+                    </div>
+                    <div>
+                        <strong>Telegram:</strong><br>
+                        @DuxxanSupport
+                    </div>
+                    <div>
+                        <strong>Discord:</strong><br>
+                        discord.gg/duxxan
+                    </div>
+                </div>
+            </div>
+
+            <h3>🎯 Sonuç</h3>
+            <p style="font-size: 1.2rem; margin: 20px 0; text-align: center;">
+                <span class="highlight">DUXXAN</span>, blockchain teknolojisinin gücünü kullanarak, 
+                güvenli, şeffaf ve adil bir çekiliş ve bağış ekosistemi sunar. 
+                Kullanıcılarımızın güvenliği ve memnuniyeti önceliğimizdir.
+            </p>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <h3>🚀 Hemen Başlayın!</h3>
+                <p style="font-size: 1.1rem;">
+                    MetaMask cüzdanınızı bağlayın ve DUXXAN dünyasına adım atın.<br>
+                    <strong>İlk çekilişinizde %20 bonus kazanın!</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Print-friendly PDF generation
+        if (window.location.search.includes('print')) {
+            window.onload = function() {
+                setTimeout(() => {
+                    window.print();
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>

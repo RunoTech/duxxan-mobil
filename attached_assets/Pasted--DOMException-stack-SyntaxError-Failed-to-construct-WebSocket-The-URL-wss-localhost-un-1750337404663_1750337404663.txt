@@ -1,0 +1,57 @@
+
+DOMException {}
+stack: "SyntaxError: Failed to construct 'WebSocket': The URL 'wss://localhost:undefined/?token=7Cir-Mmmdj-v' is invalid.↵ at new t (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:218737)↵ at setupWebSocket (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@vite/client:536:19)↵ at fallback (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@vite/client:509:16)↵ at WebSocket.<anonymous> (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@vite/client:555:7)"
+get stack: ƒ ()
+set stack: ƒ ()
+[[Prototype]]: DOMException
+
+WebSocket error: 
+Event {isTrusted: true}
+
+Failed to fetch
+Failed to fetch
+Warning: React has detected a change in the order of Hooks called by TransactionTicker. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://reactjs.org/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+1. useState                   useState
+2. useState                   useState
+3. useState                   useState
+4. useState                   useState
+5. useEffect                  useEffect
+6. useEffect                  useEffect
+7. useState                   useState
+8. undefined                  useEffect
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    at TransactionTicker (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/components/TransactionTicker.tsx:61:27)
+    at div
+    at AppContent (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/App.tsx?v=zkzDX38yAIblJS-1X9qFF:178:39)
+    at TranslationProvider (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/hooks/useTranslation.tsx:119:39)
+    at QueryClientProvider (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=3f58000d:2805:3)
+    at ThemeProvider (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/components/ThemeProvider.tsx:20:33)
+    at App (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/App.tsx?v=zkzDX38yAIblJS-1X9qFF:218:3)
+
+Previous render Next render
+------------------------------------------------------
+1. useState useState
+2. useState useState
+3. useState useState
+4. useState useState
+5. useEffect useEffect
+6. useEffect useEffect
+7. useState useState
+8. undefined useEffect
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+at TransactionTicker (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/components/TransactionTicker.tsx:61:27)
+at div
+at AppContent (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/App.tsx?v=zkzDX38yAIblJS-1X9qFF:178:39)
+at TranslationProvider (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/hooks/useTranslation.tsx:119:39)
+at QueryClientProvider (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=3f58000d:2805:3)
+at ThemeProvider (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/components/ThemeProvider.tsx:20:33)
+at App (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/src/App.tsx?v=zkzDX38yAIblJS-1X9qFF:218:3)
+at t.value (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://3b91070e-8460-4726-a590-ef42297d93d7-00-3in74dprukb26.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400

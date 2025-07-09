@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="metamask-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E17726;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F89C35;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <path d="M30.12 2.88L18.75 11.25L21.25 5.63L30.12 2.88Z" fill="url(#metamask-gradient)"/>
+  <path d="M1.88 2.88L13.13 11.37L10.75 5.63L1.88 2.88Z" fill="url(#metamask-gradient)"/>
+  <path d="M25.75 23.25L22.5 28.12L29.5 30L31.5 23.38L25.75 23.25Z" fill="url(#metamask-gradient)"/>
+  <path d="M0.5 23.38L2.5 30L9.5 28.12L6.25 23.25L0.5 23.38Z" fill="url(#metamask-gradient)"/>
+  <path d="M9.25 14.12L7.12 17.25L14.25 17.62L14 10.25L9.25 14.12Z" fill="url(#metamask-gradient)"/>
+  <path d="M22.75 14.12L18 10.12L18 17.62L25.12 17.25L22.75 14.12Z" fill="url(#metamask-gradient)"/>
+  <path d="M9.5 28.12L13.62 26.12L10.12 23.5L9.5 28.12Z" fill="url(#metamask-gradient)"/>
+  <path d="M18.38 26.12L22.5 28.12L21.88 23.5L18.38 26.12Z" fill="url(#metamask-gradient)"/>
+  <path d="M22.5 28.12L18.38 26.12L18.75 29.25L18.62 31.25L22.5 28.12Z" fill="url(#metamask-gradient)"/>
+  <path d="M9.5 28.12L13.38 31.25L13.25 29.25L13.62 26.12L9.5 28.12Z" fill="url(#metamask-gradient)"/>
+  <path d="M13.5 20.88L10.12 19.88L12.5 18.75L13.5 20.88Z" fill="url(#metamask-gradient)"/>
+  <path d="M18.5 20.88L19.5 18.75L21.88 19.88L18.5 20.88Z" fill="url(#metamask-gradient)"/>
+  <path d="M9.5 28.12L10.25 23.25L6.25 23.38L9.5 28.12Z" fill="url(#metamask-gradient)"/>
+  <path d="M21.75 23.25L22.5 28.12L25.75 23.38L21.75 23.25Z" fill="url(#metamask-gradient)"/>
+  <path d="M25.12 17.25L18 17.62L18.5 20.88L19.5 18.75L21.88 19.88L25.12 17.25Z" fill="url(#metamask-gradient)"/>
+  <path d="M10.12 19.88L12.5 18.75L13.5 20.88L14 17.62L7.12 17.25L10.12 19.88Z" fill="url(#metamask-gradient)"/>
+  <path d="M7.12 17.25L10.12 23.5L10.12 19.88L7.12 17.25Z" fill="url(#metamask-gradient)"/>
+  <path d="M21.88 19.88L21.88 23.5L25.12 17.25L21.88 19.88Z" fill="url(#metamask-gradient)"/>
+  <path d="M14 17.62L13.5 20.88L14.12 25.75L14.25 19.62L14 17.62Z" fill="url(#metamask-gradient)"/>
+  <path d="M18 17.62L17.75 19.62L17.88 25.75L18.5 20.88L18 17.62Z" fill="url(#metamask-gradient)"/>
+  <path d="M18.5 20.88L17.88 25.75L18.38 26.12L21.88 23.5L21.88 19.88L18.5 20.88Z" fill="url(#metamask-gradient)"/>
+  <path d="M10.12 19.88L10.12 23.5L13.62 26.12L14.12 25.75L13.5 20.88L10.12 19.88Z" fill="url(#metamask-gradient)"/>
+</svg>

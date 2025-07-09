@@ -1,0 +1,147 @@
+1. Proje Genel Özellikleri
+Proje Adı: DUXXAN
+
+Platform: Web uygulaması, tamamen mobil uyumlu (responsive)
+
+Tasarım: Binance borsası tarzı koyu tema, Binance sarısı (#F3BA2F) ve beyaz ağırlıklı, modern, kalın ve okunabilir fontlar
+
+Cüzdan Bağlantısı: Trust Wallet ve MetaMask (WalletConnect destekli)
+
+Kullanıcı Girişi:
+
+Cüzdan bağlanmadan ana sayfa ve bazı sayfalar buzlu (blur) olarak gösterilecek
+
+Cüzdan bağlandıktan sonra içerikler tam aktif olacak
+
+Backend: Microservis mimarisi, Node.js/Express veya tercihe göre
+
+Frontend: React veya Vue, Vite ile hızlı build
+
+Veritabanı: PostgreSQL veya MongoDB, detaylı kullanıcı, çekiliş, bağış, puanlama ve işlem kayıtları
+
+Blockchain: Binance Smart Chain (BSC) üzerinde USDT (6 decimal) ile çalışacak, özel yazılmış çekiliş ve bağış kontratları
+
+Gerçek Zamanlı: WebSocket veya benzeri teknolojilerle canlı veri güncellemeleri
+
+2. Kullanıcı Profili
+Profil Oluşturma:
+
+Benzersiz kullanıcı adı zorunlu
+
+Fotoğraf yükleme opsiyonu
+
+İsim, soyisim, meslek, biyografi alanları (zorunlu değil)
+
+Profil Sayfası İçeriği:
+
+Katıldığı çekilişler
+
+Kazandıkları çekilişler
+
+Başlattığı bağışlar
+
+5 yıldızlık puanlama sistemi (yorum yok)
+
+Kullanıcılar profilleri arayabilir, aktif/pasif durum görülebilir
+
+Takip Etme Opsiyonu: İsteğe bağlı
+
+3. Çekiliş Sistemi
+Çekiliş Oluşturma:
+
+Kategori seçimi: Ev, Araba, Elektronik, Mücevher, Arazi, Sanat vb.
+
+Kullanıcı kendi ürünüyle çekiliş başlatır
+
+Katılım ücreti (bilet fiyatı) kullanıcı tarafından belirlenir, sistem otomatik hesaplama destekler
+
+Çekiliş sonlanma tarihi kullanıcı tarafından belirlenir
+
+Çekiliş oluşturma ücreti: 25 USDT (komisyon ve ücret iade edilmez)
+
+Komisyon:
+
+Toplam komisyon %10
+
+Komisyonun %5’i çekiliş oluşturana gider
+
+Çekiliş Süreci:
+
+Bilet satın alımlarına göre grafikler dinamik yükselir (binance tarzı grafik animasyonları)
+
+Kazanan ile çekilişi oluşturan kişi sadece birbirleriyle chat yapabilir
+
+Çekiliş süresi içinde yeterli bilet satılamazsa (çekiliş yanar), yatırımcıların paraları komisyon hariç iade edilir
+
+Kazanan ile çekilişi yapan kişi 6 gün içinde uzlaşmazsa; kazanana tutarın %60’ı, platforma %40’ı gider
+
+Çekilişi kazanan kişi ürünü almazsa, çekiliş sonucu onaylanmaz, ödeme yapılmaz
+
+Onay Mekanizması:
+
+Çekilişi oluşturan ve kazanan kullanıcı profil sayfalarında “approve” butonları olur, karşılıklı onay sonrası ödeme yapılır
+
+Katılım:
+
+Kullanıcılar sadece MetaMask ve Trust Wallet ile katılabilir
+
+Çekilişler Sosyal Medyada paylaşılabilir
+
+4. Donate (Bağış) Sistemi
+Kullanıcı cüzdanla giriş yaptıktan sonra donate başlatabilir
+
+Bağış başlatma ücreti: 25 USDT
+
+Platform bağış tutarından %10 komisyon alır
+
+Donate grafikleri dinamik, yükselen “Donate Market Cap” tarzında görselleştirilecek
+
+Bağışlar, bağışçılar ve toplam bağış miktarı anlık grafik ve liste ile gösterilecek
+
+5. Ana Sayfa (Dashboard)
+Popüler çekilişler, günlük ödüllü çekilişler ve donate alanı açık ve çekici şekilde yer alacak
+
+Dinamik grafik kartlar ile çekilişler canlı takip edilecek (grafikler bilet alımı ile yükselir)
+
+Canlı hacim göstergeleri (anlık bilet satışı, bağış sayısı)
+
+Kategori filtreleri ve hızlı erişim
+
+Tüm butonlar ikon olmadan, kalın, modern ve okunaklı yazı ile
+
+6. Güvenlik & Kullanıcı Deneyimi
+Çift faktörlü doğrulama (daha sonra eklenmek üzere, şimdilik cüzdan bağlantısı yeterli)
+
+IP ve bot filtreleme planlanacak
+
+Kullanıcıların kişisel bilgileri zorunlu değil, gizlilik ön planda
+
+Kötü niyetli kullanıcı ve dolandırıcılara karşı blockchain tabanlı şeffaflık ve otomasyon ile önlem
+
+Mikro animasyonlar ve hover efektleri ile modern UI/UX
+
+7. Teknik Detaylar ve Diğer
+Her sayfa ve işlem detaylı loglanacak
+
+Veri tabanında footerlar için yazı alanı oluşturulacak ve kolayca düzenlenebilecek
+
+Video yükleme opsiyonu ileride eklenebilir (şimdilik planlama dışı)
+
+Kullanıcılar sadece cüzdan ile giriş yapacak, kimlik bilgisi toplanmayacak
+
+Web sitesinde Google Translate entegrasyonu opsiyonel ve kullanıcı isteğine bağlı olabilir
+
+İleride abonelik sistemi ile kurumsal markalar takipçi kazanabilir ve bildirim alabilir
+
+Kullanıcılar sadece 5 yıldızla puanlama yapabilir, yorum yok
+
+WebSocket ile gerçek zamanlı çekiliş ve donate güncellemeleri
+
+8. Buton ve Arayüz Detayları
+Butonlarda ikon olmayacak, sadece metin
+
+Butonlar büyük, kalın fontlu, hover ve aktif durumlarında renk ve hafif animasyon değişimi olacak
+
+Arayüz modern, temiz, canlı renk geçişleriyle zenginleştirilecek
+
+Tasarım Binance borsasına benzer ama DUXXAN’a özgü yenilikçi animasyonlar ve detaylar olacak

@@ -1,0 +1,76 @@
+🔧 Genel Yapılandırma
+Sistemi Microservice mimarisi ile başlat.
+
+Her servis için ayrı veri tabanı şeması kullan (monolithic yapıdan çık).
+
+Kullanıcı, çekiliş, donate, bildirim, auth, gibi servisleri böl.
+
+Frontend & Backend ayrımı yap.
+
+Aralarında REST API kullan.
+
+CORS ve CSRF korumalarını aktif et.
+
+API isteklerinde rate-limit ve timeout sınırları tanımla.
+
+Kod yapısını component bazlı tasarla, her bir fonksiyonu bağımsız hale getir.
+
+🧱 Frontend (React + Shadcn + Tailwind)
+Kullanılmayan Shadcn bileşenlerini projeden kaldır (örneğin: hover-card, carousel, pagination, vs).
+
+Recharts kullandığın chart’ları tek dosyaya değil, /components/charts altında ayrı ayrı oluştur.
+
+Tüm veri çekme işlemlerini lib/hooks klasörüne taşı:
+
+useUserProfile, useRaffleData, useDonationStats gibi özel hook'lar tanımla.
+
+Form validasyonları için zod kullan, girilen verileri hem frontend hem backend’de doğrula.
+
+UI tarafında Skeleton bileşenleri ile yükleme animasyonlarını düzgün yap.
+
+Sayfa geçişlerinde gereksiz re-render’ları engelle.
+
+🛡️ Güvenlik
+JWT tabanlı auth sistemi kur:
+
+iat, exp, deviceID, origin gibi alanlar içersin.
+
+Cüzdanla login sistemine device fingerprint (örneğin fingerprintjs) entegre et.
+
+Her API endpointi için IP rate limit ve nonce sistemi oluştur.
+
+Tüm gelen verileri XSS ve SQL Injection'a karşı sanitize et.
+
+🔄 Backend
+Prisma veya benzeri bir ORM kullan.
+
+Tüm SQL işlemlerini try/catch yapısı ile yönet.
+
+Yavaşlatıcı işlemler için queue sistemi kullan (örneğin: çekiliş bitimi hesaplamaları).
+
+Gereksiz shared schema kullanımından kaçın, her servisi bağımsızlaştır.
+
+Çekilişler, donate’ler ve kullanıcı işlemleri için transaction destekli işlem zinciri kur.
+
+📊 Performans
+Tanstack Query kullanarak önbellek yap.
+
+Çok veri çeken işlemler için pagination ve infinite scroll kullan.
+
+Sayfa başına düşen chart ve veri sayısını sınırlı tut.
+
+Recharts bileşenlerini yeniden render etmeyecek şekilde optimize et.
+
+🔍 İzleme ve Geliştirme
+console.log kullanımını minimuma indir ve prod ortamda kaldır.
+
+Prod ortam için bundle size ölçümü yap.
+
+API’lerin tepki süresi ve hata oranı için bir monitoring sistemi (örneğin: Sentry, LogRocket) kur.
+
+📁 Deployment
+API ve Frontend için farklı domain/subdomain kullan.
+
+Vercel, Netlify veya kendi VPS sunucunla auto deploy sistemi kur.
+
+Ortam değişkenlerini .env ile düzenle ve git’e dahil etme.

@@ -1,0 +1,62 @@
+/* Simple transitions only - no complex animations */
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Essential ticker animation only */
+.ticker-scroll {
+  animation: scrollText 30s linear infinite;
+  white-space: nowrap;
+}
+
+/* Simple hover effects */
+.card-hover {
+  transition: box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Simple loading state */
+.loading-skeleton {
+  background: #f0f0f0;
+}
+
+.dark .loading-skeleton {
+  background: #2a2a2a;
+}
+
+/* Responsive utilities */
+.responsive-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .responsive-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

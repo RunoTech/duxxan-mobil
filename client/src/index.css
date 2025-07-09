@@ -1,0 +1,915 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Performance optimized transitions - only for specific properties */
+  .smooth-transition {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  /* GPU accelerated transforms for better performance */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+  
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 42 100% 50%;
+    --primary-foreground: 240 10% 3.9%;
+    --secondary: 240 4.9% 83.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.9% 83.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.9% 83.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 42 100% 50%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    
+    /* DUXXAN Theme Colors */
+    --duxxan-bg: 240 10% 6%;
+    --duxxan-surface: 240 9% 9%;
+    --duxxan-border: 240 9% 15%;
+    --duxxan-text: 0 0% 95%;
+    --duxxan-text-secondary: 240 5% 65%;
+    --duxxan-primary: 42 100% 50%;
+    --duxxan-secondary: 240 5% 25%;
+    --duxxan-success: 142 76% 36%;
+    --duxxan-warning: 38 92% 50%;
+    --duxxan-error: 0 84% 60%;
+    --duxxan-yellow: 42 100% 50%;
+    --duxxan-dark: 240 10% 6%;
+    --duxxan-page: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 42 100% 50%;
+    --primary-foreground: 240 10% 3.9%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 42 100% 50%;
+    
+    /* DUXXAN Dark Theme Colors */
+    --duxxan-page: 240 10% 6%;
+  }
+}
+
+/* Force proper input styling for both themes */
+input, textarea, select {
+  background-color: white !important;
+  color: rgb(17, 24, 39) !important;
+  border-color: rgba(255, 201, 41, 0.3) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgb(107, 114, 128) !important;
+  opacity: 0.7 !important;
+}
+
+/* Fix icon and button transparency issues */
+button, 
+.btn,
+[role="button"],
+.cursor-pointer {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* Light theme button fixes */
+.light button:not(.bg-gradient-to-r):not([class*="bg-"]) {
+  background-color: rgb(249, 250, 251) !important;
+  color: rgb(17, 24, 39) !important;
+  border-color: rgb(209, 213, 219) !important;
+}
+
+/* Dark theme button fixes */
+.dark button:not(.bg-gradient-to-r):not([class*="bg-"]) {
+  background-color: rgb(31, 41, 55) !important;
+  color: rgb(243, 244, 246) !important;
+  border-color: rgb(75, 85, 99) !important;
+}
+
+/* Icon visibility fixes */
+svg, 
+.lucide,
+[data-lucide] {
+  opacity: 1 !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* Dropdown and popover fixes */
+[data-radix-popper-content-wrapper],
+.dropdown-content,
+.popover-content,
+[role="menu"],
+[role="listbox"] {
+  background-color: white !important;
+  color: rgb(17, 24, 39) !important;
+  border: 1px solid rgb(209, 213, 219) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dark [data-radix-popper-content-wrapper],
+.dark .dropdown-content,
+.dark .popover-content,
+.dark [role="menu"],
+.dark [role="listbox"] {
+  background-color: rgb(31, 41, 55) !important;
+  color: rgb(243, 244, 246) !important;
+  border-color: rgb(75, 85, 99) !important;
+}
+
+/* Navigation and menu item fixes */
+.nav-item,
+.menu-item,
+[role="menuitem"] {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+.nav-item:hover,
+.menu-item:hover,
+[role="menuitem"]:hover {
+  background-color: rgb(249, 250, 251) !important;
+  color: rgb(17, 24, 39) !important;
+}
+
+.dark .nav-item:hover,
+.dark .menu-item:hover,
+.dark [role="menuitem"]:hover {
+  background-color: rgb(55, 65, 81) !important;
+  color: rgb(243, 244, 246) !important;
+}
+
+/* Fix Radix UI component transparency issues */
+[data-radix-dialog-content],
+[data-radix-alert-dialog-content],
+[data-radix-sheet-content],
+[data-radix-popover-content],
+[data-radix-dropdown-menu-content],
+[data-radix-collapsible-content],
+[data-radix-accordion-content] {
+  background-color: white !important;
+  color: rgb(17, 24, 39) !important;
+  border: 1px solid rgb(209, 213, 219) !important;
+}
+
+.dark [data-radix-dialog-content],
+.dark [data-radix-alert-dialog-content],
+.dark [data-radix-sheet-content],
+.dark [data-radix-popover-content],
+.dark [data-radix-dropdown-menu-content],
+.dark [data-radix-collapsible-content],
+.dark [data-radix-accordion-content] {
+  background-color: rgb(31, 41, 55) !important;
+  color: rgb(243, 244, 246) !important;
+  border-color: rgb(75, 85, 99) !important;
+}
+
+/* Remove all backdrop-blur effects that cause transparency issues */
+.backdrop-blur,
+.backdrop-blur-sm,
+.backdrop-blur-md,
+.backdrop-blur-lg,
+.backdrop-blur-xl,
+.backdrop-blur-2xl,
+.backdrop-blur-3xl {
+  backdrop-filter: none !important;
+}
+
+/* Ensure all buttons have proper backgrounds */
+button {
+  opacity: 1 !important;
+}
+
+button:not([class*="bg-gradient"]):not([class*="bg-"]):not(.variant-ghost):not(.variant-outline) {
+  background-color: rgb(249, 250, 251) !important;
+  color: rgb(17, 24, 39) !important;
+  border: 1px solid rgb(209, 213, 219) !important;
+}
+
+.dark button:not([class*="bg-gradient"]):not([class*="bg-"]):not(.variant-ghost):not(.variant-outline) {
+  background-color: rgb(31, 41, 55) !important;
+  color: rgb(243, 244, 246) !important;
+  border: 1px solid rgb(75, 85, 99) !important;
+}
+
+/* Fix footer card transparency issues */
+footer .bg-white\/50 {
+  background-color: white !important;
+}
+
+.dark footer .dark\:bg-gray-800\/50 {
+  background-color: rgb(31, 41, 55) !important;
+}
+
+/* Fix all transparent backgrounds in cards */
+[class*="bg-white/"],
+[class*="bg-gray-800/"],
+[class*="bg-gray-900/"] {
+  backdrop-filter: none !important;
+}
+
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.bg-white\/20 {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.bg-white\/50 {
+  background-color: white !important;
+}
+
+.dark .dark\:bg-gray-800\/50 {
+  background-color: rgb(31, 41, 55) !important;
+}
+
+.dark .dark\:bg-gray-900\/50 {
+  background-color: rgb(17, 24, 39) !important;
+}
+
+/* Dark theme specific input fixes */
+.dark input, .dark textarea, .dark select {
+  background-color: rgb(31, 41, 55) !important;
+  color: rgb(243, 244, 246) !important;
+  border-color: rgba(255, 201, 41, 0.4) !important;
+}
+
+.dark input::placeholder, .dark textarea::placeholder {
+  color: rgb(156, 163, 175) !important;
+  opacity: 0.8 !important;
+}
+
+/* Input focus states */
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid rgba(255, 201, 41, 0.5) !important;
+  outline-offset: 2px !important;
+  border-color: rgba(255, 201, 41, 0.6) !important;
+}
+
+.dark input:focus, .dark textarea:focus, .dark select:focus {
+  border-color: rgba(255, 201, 41, 0.7) !important;
+  background-color: rgb(31, 41, 55) !important;
+  color: rgb(243, 244, 246) !important;
+}
+
+/* Select dropdown styling */
+.dark [data-radix-select-content] {
+  background-color: rgb(31, 41, 55) !important;
+  color: rgb(243, 244, 246) !important;
+  border-color: rgba(255, 201, 41, 0.4) !important;
+}
+
+.dark [data-radix-select-item] {
+  color: rgb(243, 244, 246) !important;
+}
+
+.dark [data-radix-select-item]:hover {
+  background-color: rgba(255, 201, 41, 0.2) !important;
+}
+
+.dark [data-radix-select-trigger] {
+  background-color: rgb(31, 41, 55) !important;
+  color: rgb(243, 244, 246) !important;
+}
+
+/* Modal specific overrides */
+.dark .bg-white {
+  background-color: rgb(31, 41, 55) !important;
+}
+
+.dark .text-gray-900 {
+  color: rgb(243, 244, 246) !important;
+}
+
+/* Specific targeting for dialog inputs */
+[role="dialog"] input,
+[role="dialog"] textarea {
+  background-color: white !important;
+  color: rgb(17, 24, 39) !important;
+}
+
+.dark [role="dialog"] input,
+.dark [role="dialog"] textarea {
+  background-color: rgb(31, 41, 55) !important;
+  color: rgb(243, 244, 246) !important;
+}
+
+/* Custom button hover for raffle cards */
+.raffle-button-hover:hover {
+  background-color: #FFC929 !important;
+  color: #000000 !important;
+  border-color: #FFC929 !important;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; /* Reduced from default 16px */
+  }
+}
+
+/* Custom DUXXAN Classes */
+.bg-duxxan-dark {
+  @apply bg-gray-900;
+}
+
+.bg-duxxan-surface {
+  @apply bg-gray-800;
+}
+
+.bg-duxxan-page {
+  @apply bg-white dark:bg-gray-900;
+}
+
+.text-duxxan-text {
+  @apply text-gray-100;
+}
+
+.text-duxxan-text-secondary {
+  @apply text-gray-400;
+}
+
+.border-duxxan-border {
+  @apply border-gray-700;
+}
+
+.text-duxxan-success {
+  @apply text-green-400;
+}
+
+.text-duxxan-warning {
+  @apply text-yellow-400;
+}
+
+.text-duxxan-error {
+  @apply text-red-400;
+}
+
+.text-duxxan-yellow {
+  @apply text-yellow-400;
+}
+
+.bg-duxxan-success {
+  @apply bg-green-600;
+}
+
+.bg-duxxan-warning {
+  @apply bg-yellow-500;
+}
+
+.bg-duxxan-error {
+  @apply bg-red-600;
+}
+
+.bg-duxxan-yellow {
+  @apply bg-yellow-500;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive design helpers */
+.responsive-card {
+  @apply w-full max-w-none;
+}
+
+/* Main layout responsive */
+.responsive-container {
+  @apply w-full max-w-7xl mx-auto;
+  padding-left: clamp(8px, 2vw, 32px);
+  padding-right: clamp(8px, 2vw, 32px);
+}
+
+.responsive-grid {
+  display: grid;
+  gap: clamp(12px, 2vw, 24px);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+@media (max-width: 640px) {
+  .responsive-card {
+    @apply mx-1;
+  }
+  
+  .responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+}
+
+/* Custom breakpoint for navigation at 977px */
+@media (min-width: 977px) {
+  .custom-md\:flex {
+    display: flex !important;
+  }
+  
+  .custom-md\:hidden {
+    display: none !important;
+  }
+  
+  .custom-md\:block {
+    display: block !important;
+  }
+}
+
+@media (max-width: 976px) {
+  .custom-md\:flex {
+    display: none !important;
+  }
+  
+  .custom-md\:hidden {
+    display: block !important;
+  }
+  
+  .custom-md\:block {
+    display: none !important;
+  }
+}
+
+/* Mobile menu improvements for better readability */
+.mobile-menu-item {
+  transition: all 0.2s ease;
+}
+
+/* Light theme mobile menu */
+.mobile-nav-links a {
+  color: #1e293b !important;
+  border-color: #e2e8f0 !important;
+}
+
+.mobile-nav-links a:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Dark theme mobile menu */
+.dark .mobile-nav-links a {
+  color: #f1f5f9 !important;
+  border-color: #475569 !important;
+}
+
+.dark .mobile-nav-links a:hover {
+  background-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+/* Better button contrast in both themes */
+button {
+  color: inherit;
+}
+
+.dark button {
+  color: #f1f5f9;
+}
+
+.dark button:hover {
+  background-color: #334155;
+}
+
+/* Theme button improvements */
+.theme-button {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.dark .theme-button {
+  background-color: #1e293b;
+  border-color: #475569;
+}
+
+.dark .theme-button:hover {
+  background-color: #334155;
+}
+
+/* Prevent text overflow at medium sizes */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+    line-height: 1.1 !important;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* Navigation spacing adjustments */
+@media (min-width: 1280px) {
+  .custom-md\:flex {
+    gap: 2rem !important;
+  }
+}
+
+@media (min-width: 977px) and (max-width: 1279px) {
+  .custom-md\:flex {
+    gap: 1rem !important;
+  }
+}
+
+/* Animation for page transitions */
+.page-transition {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Progress bar custom styling */
+.progress-bar {
+  @apply bg-gradient-to-r from-yellow-400 to-yellow-600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Chart container responsive */
+.chart-container {
+  @apply w-full h-64 sm:h-80 md:h-96;
+}
+
+/* Mobile-first button sizing */
+.btn-responsive {
+  @apply text-sm px-3 py-2 sm:text-base sm:px-4 sm:py-2;
+}
+
+/* Card content spacing */
+.card-content-spacing > * + * {
+  @apply mt-4;
+}
+
+/* Improved focus states */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-yellow-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* Custom badge sizing */
+.badge-sm {
+  @apply text-xs px-2 py-0.5;
+}
+
+/* Truncate text helper */
+.truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Responsive donation card fixes */
+.donation-input-responsive {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.donation-input-responsive input {
+  flex: 1;
+  min-width: 0 !important;
+  width: 0 !important;
+  flex-grow: 1;
+}
+
+.donation-input-responsive button {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Quick amount buttons responsive */
+.donation-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.donation-quick-grid button {
+  min-width: 0 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10px !important;
+  line-height: 12px !important;
+  padding: 6px 2px !important;
+}
+
+/* Scrolling animation for transaction ticker */
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 2000s linear infinite;
+}
+
+@media (max-width: 640px) {
+  .donation-quick-grid button {
+    font-size: 9px !important;
+    line-height: 10px !important;
+    padding: 4px 1px !important;
+  }
+  
+  .donation-input-responsive input {
+    font-size: 12px !important;
+    padding: 8px 6px !important;
+  }
+  
+  .donation-input-responsive button {
+    font-size: 11px !important;
+    padding: 8px 8px !important;
+  }
+}
+
+/* Loading state */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .loading-shimmer {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ===============================================
+   PERFORMANCE OPTIMIZED ANIMATIONS
+   =============================================== */
+
+/* Additional GPU-accelerated animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to { 
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInLeft {
+  from { 
+    opacity: 0;
+    transform: translate3d(-10px, 0, 0);
+  }
+  to { 
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1);
+  }
+  50% { 
+    transform: scale(1.02);
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 201, 41, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 201, 41, 0.6);
+  }
+}
+
+/* Utility Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.3s ease-out forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Hover Animations - Optimized for Performance */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.hover-lift:hover {
+  transform: translate3d(0, -2px, 0);
+}
+
+.hover-scale {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-glow {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 4px 20px rgba(255, 201, 41, 0.3);
+}
+
+/* Staggered Animation Delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Card Animations - Optimized */
+.card-animate {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.card-animate:hover {
+  transform: translate3d(0, -4px, 0);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .card-animate:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Animations */
+.btn-animate {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.btn-animate:hover {
+  transform: translate3d(0, -1px, 0);
+}
+
+.btn-animate:active {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-slide-in-left,
+  .animate-pulse-subtle,
+  .animate-float,
+  .animate-glow,
+  .hover-lift,
+  .hover-scale,
+  .hover-glow,
+  .card-animate,
+  .btn-animate {
+    animation: none !important;
+    transition: none !important;
+  }
+}

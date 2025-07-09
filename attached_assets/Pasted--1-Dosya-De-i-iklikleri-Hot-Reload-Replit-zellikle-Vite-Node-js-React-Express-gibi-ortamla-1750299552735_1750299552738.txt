@@ -1,0 +1,71 @@
+🚨 1. Dosya Değişiklikleri (Hot Reload)
+Replit, özellikle Vite, Node.js, React, Express gibi ortamlarda dosya değişikliklerini algıladığında sunucuyu otomatik olarak yeniden başlatır.
+
+🔹 Neden?
+Kodda herhangi bir .js, .ts, .html, .json dosyası değiştiyse
+
+Bazı kütüphaneler “watch mode” çalışıyorsa
+
+vite, nodemon, ts-node-dev gibi araçlar varsa otomatik restart yapar
+
+✅ Çözüm:
+Kod editöründe dosyaları kaydederken otomatik tetiklenmesini engelle
+
+Eğer nodemon kullanıyorsan, --legacy-watch parametresiyle deneyebilirsin
+
+Vite kullanıyorsan: vite.config.js içinde watch veya hmr ayarlarını kontrol et
+
+🔌 2. Timeout / İnaktiflik Limiti
+Replit, Free planlarda birkaç dakika boyunca istek gelmeyen projeleri uyku moduna alır veya durdurur.
+Sonra biri tekrar siteyi açarsa Replit sunucuyu yeniden başlatır.
+
+✅ Çözüm:
+Projeyi Pro Plan’a yükselt (always-on özelliği gelir)
+
+Sürekli aktif tutmak için uptime monitor (cron gibi) sistemler kullanılabilir (örnek: UptimeRobot)
+
+💥 3. Crash / Hatalı Kod
+Kodda uncaughtException, sonsuz döngü, async hatası, bellek taşması varsa Replit otomatik yeniden başlatır.
+
+✅ Çözüm:
+Sunucu loglarını dikkatli incele (console, stderr)
+
+try/catch bloklarıyla hataları yakala
+
+Belleği şişiren döngüler, büyük JSON dosyaları, sonsuz fetch gibi durumları temizle
+
+🔁 4. Sonsuz Yeniden Derleme Döngüsü (Özellikle Vite'de)
+Vite veya Webpack gibi bundler'larda çıkabilir:
+
+vite.config.js içinde publicDir, outDir veya watch yanlış yapılandırılmış olabilir
+
+/public klasörü içine dist/ çıktısı yazıyorsa → Vite kendi kendini tetikler!
+
+✅ Çözüm:
+outDir kesinlikle public/ içine yazmamalı
+
+.vite klasörünü watch dışına al
+
+fs.writeFile gibi işlemlerle sürekli dosya güncelleniyorsa kontrol et
+
+🔒 5. Replit Sistemsel Limitler
+Çok fazla CPU veya RAM kullanıyorsan Replit seni yeniden başlatır
+
+Proje klasöründe node_modules çok şiştiyse (300MB+), işlem süresi artar
+
+✅ Çözüm:
+Gereksiz paketleri sil (rimraf node_modules, npm install --production)
+
+package.json sadeleştir
+
+Log dosyaları .log, .json büyüyorsa temizle
+
+📦 Örnek Log Kontrolü
+Replit'te Console sekmesine bak:
+
+Hata mesajı: Error: address already in use
+
+Killed → bellek limiti aşıldı
+
+Restarting... → dosya değişikliği algılandı
+
